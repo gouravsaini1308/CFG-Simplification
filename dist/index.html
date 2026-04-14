@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CFG Simplifier</title>
+    <script type="module" crossorigin src="./assets/index-D0f2j-1B.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-CJiax0Gg.css">
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <div>
+          <h1>Context-Free Grammar Simplifier</h1>
+          <p class="subtitle">
+            Visualize transformations: useless symbols, ε-productions, and unit productions.
+          </p>
+        </div>
+      </header>
+
+      <div id="alertRoot"></div>
+
+      <section class="card">
+        <h2>Enter grammar</h2>
+        <p class="help">
+          Format: one production per line, e.g. <code>S -&gt; AB | a</code>. Use <code>ε</code> or
+          <code>lambda</code> for empty string.
+        </p>
+
+        <form id="grammarForm">
+          <label class="label" for="grammar">Productions</label>
+          <textarea
+            id="grammar"
+            name="grammar"
+            rows="10"
+            spellcheck="false"
+            placeholder="S -> AB | ε&#10;A -> aA | a&#10;B -> b"
+          ></textarea>
+
+          <div class="row">
+            <div class="grow">
+              <label class="label" for="start_symbol">Start symbol</label>
+              <select id="start_symbol" name="start_symbol">
+                <option value="">(parse to select)</option>
+              </select>
+              <div class="hint">Click “Parse preview” to populate this list.</div>
+            </div>
+
+            <div class="actions">
+              <button type="button" class="btn btn-secondary" id="previewBtn">Parse preview</button>
+              <button type="button" class="btn btn-secondary" id="clearBtn">Clear</button>
+              <button type="submit" class="btn btn-primary" id="simplifyBtn">Simplify</button>
+            </div>
+          </div>
+        </form>
+      </section>
+
+      <section class="card">
+        <h2>Preview</h2>
+        <div id="previewStatus" class="muted">No preview yet.</div>
+        <pre id="previewBox" class="codebox"></pre>
+      </section>
+
+      <div id="resultsRoot"></div>
+    </div>
+
+  </body>
+</html>
+
